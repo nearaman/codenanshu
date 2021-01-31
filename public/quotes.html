@@ -149,13 +149,13 @@
 <script>
     var quote = document.getElementById('quote');
     var author = document.getElementById('author');
-    var content = fetch("http://api.quotable.io/random").then(res => res.json()).then(
+    var content = console.log(fetch("http://api.quotable.io/random").then(res => res.json()).then(
         data => {
             quote.innerHTML = data.content;
             author.innerHTML = data.author;
             window.quoteData = data.content;
         }
-    );
+    ));
     function tweatIt() {
         window.open('https://twitter.com/intent/tweet?text=' + quoteData + ' @anshumeena1947 ' + 'from https://codenanshu.in/quotes.html');
     }
