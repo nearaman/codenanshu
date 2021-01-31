@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeNanshu -- Qoutes Generator For Free</title>
+    <link rel="shortcut icon" href="/media/images/codenanshu.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/animate.css">
+        <style>
+        /* @font-face {
+            font-family: Quote;
+            src: url("/assets/unicorn-scribbles-font/UnicornScribbles-eLmg.ttf");
+        } */
+
+        * {
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        body {
+            margin: 10px;
+            padding: 10px;
+            background: #000000;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #434343, #000000);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #434343, #000000);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+
+        .css-selector {
+            background: linear-gradient(318deg, #0093e9, #00dbde, #00DBDE, #9599e2);
+            background-size: 800% 800%;
+
+            -webkit-animation: gradient 27s ease infinite;
+            -moz-animation: gradient 27s ease infinite;
+            animation: gradient 27s ease infinite;
+        }
+
+        @-webkit-keyframes gradient {
+            0% {
+                background-position: 0% 52%
+            }
+
+            50% {
+                background-position: 100% 49%
+            }
+
+            100% {
+                background-position: 0% 52%
+            }
+        }
+
+        @-moz-keyframes gradient {
+            0% {
+                background-position: 0% 52%
+            }
+
+            50% {
+                background-position: 100% 49%
+            }
+
+            100% {
+                background-position: 0% 52%
+            }
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 52%
+            }
+
+            50% {
+                background-position: 100% 49%
+            }
+
+            100% {
+                background-position: 0% 52%
+            }
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        #quote {
+            font-size: 5em;
+            color: white;
+            text-align: center;
+            margin-top: 150px;
+
+        }
+
+        p {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        button {
+            float: left;
+            background-color: #000000;
+            border-radius: 10px;
+            border-color: #000000;
+            border: none;
+            height: 50px;
+            width: 100px;
+            color: white;
+            cursor: pointer;
+        }
+
+        @media only screen and (max-width:540px) {
+            #quote {
+                font-size: x-large;
+                margin-top: 200px;
+            }
+
+            #author {
+                margin-top: -20px;
+            }
+
+            button {
+                float: left;
+                position: fixed;
+                background-color: #000000;
+                border-radius: 10px;
+                border-color: #000000;
+                border: none;
+                height: 50px;
+                width: 100;
+                color: white;
+                cursor: pointer;
+            }
+        }
+    </style>
+</head>
+
+<body class="css-selector" id="body">
+    <h1 id="quote" class="jello-horizontal slide-top">Hello world</h1>
+    <p>by <b id="author" class="slide-top" style="color: whitesmoke;"></b></p>
+    </p>
+    <button onclick="tweatIt()">Click to Tweat</button>
+</body>
+<script>
+    var quote = document.getElementById('quote');
+    var author = document.getElementById('author');
+    var content = fetch("http://api.quotable.io/random").then(res => res.json()).then(
+        data => {
+            quote.innerHTML = data.content;
+            author.innerHTML = data.author;
+            window.quoteData = data.content;
+        }
+    );
+    function tweatIt() {
+        window.open('https://twitter.com/intent/tweet?text=' + quoteData + ' @anshumeena1947 ' + 'from https://codenanshu.in/quotes.html');
+    }
+</script>
+</html>
