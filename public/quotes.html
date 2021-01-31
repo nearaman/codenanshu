@@ -149,7 +149,7 @@
 <script>
     var quote = document.getElementById('quote');
     var author = document.getElementById('author');
-    var content = console.log(fetch("http://api.quotable.io/random").then(res => res.json()).then(
+    var content = console.log(fetch("https://api.quotable.io/random").then(res => res.json()).then(
         data => {
             quote.innerHTML = data.content;
             author.innerHTML = data.author;
